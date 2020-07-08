@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Armory Management Software.jnlp">
+  <information>
+    <title>Armory Management Software</title>
+    <vendor>jeev8</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="lib/jSerialComm-2.5.3.jar" size="389313" download="eager" />
+    <jar href="lib/jfoenix-8.0.8-retrolambda.jar" size="2722326" download="eager" />
+    <jar href="lib/ltkjava-1.0.0.6.jar" size="2538654" download="eager" />
+    <jar href="lib/ltkthingmagic.jar" size="2694608" download="eager" />
+    <jar href="lib/mercuryapi.jar" size="627060" download="eager" />
+    <jar href="lib/mysql-connector-java-8.0.11.jar" size="2036609" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Armory Management Software" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="com.scratchnest.Main"  name="Armory Management Software" />
+  <update check="always"/>
+</jnlp>

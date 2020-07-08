@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.scratchnest.ArmsTabViewController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="1049.0" minHeight="10.0" prefHeight="1011.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="526.0" minHeight="0.0" prefHeight="69.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <JFXTabPane>
+         <tabs>
+            <Tab text="Dashboard">
+               <content>
+                  <GridPane>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="519.39990234375" minWidth="0.0" prefWidth="413.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1568.0" minWidth="10.0" prefWidth="1342.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="368.79998779296875" minHeight="6.0" prefHeight="247.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="676.0" minHeight="10.0" prefHeight="667.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <GridPane id="cardVbox">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="58.0" minHeight="10.0" prefHeight="36.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="156.0" minHeight="10.0" prefHeight="153.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label id="noteLabel" prefHeight="23.0" prefWidth="135.0" text="Monitoring Service">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                              <GridPane prefHeight="120.0" prefWidth="394.0" GridPane.rowIndex="1">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="212.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="249.39990234375" minWidth="10.0" prefWidth="219.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <GridPane alignment="CENTER" prefHeight="66.0" prefWidth="224.0" vgap="40.0" GridPane.columnIndex="1">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="23.999989891052245" minHeight="10.0" prefHeight="19.199986839294432" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="25.60001220703125" minHeight="10.0" prefHeight="21.600013160705565" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <ToggleButton mnemonicParsing="false" onAction="#startServiceFromUiButton" text="Start Service">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="monitoringServiceStartStopToggleGroup1" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                          <ToggleButton mnemonicParsing="false" onAction="#stopServiceFromUiButton" text="Stop Service" toggleGroup="$monitoringServiceStartStopToggleGroup1" GridPane.rowIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane id="imageGridPane" prefHeight="22.0" prefWidth="44.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </GridPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label layoutX="138.0" layoutY="112.0" prefHeight="57.0" prefWidth="249.0" text="Total Incoming">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="countrow" layoutX="423.0" layoutY="124.0" prefHeight="33.0" prefWidth="81.0" />
+                              <TableView fx:id="details" layoutX="3.0" layoutY="162.0" prefHeight="506.0" prefWidth="1127.0">
+                                <columns>
+                                  <TableColumn fx:id="tepc" prefWidth="110.0" text="Serial Number" />
+                                    <TableColumn fx:id="tdate" minWidth="0.0" prefWidth="338.0" text="EPC " />
+                                    <TableColumn fx:id="tname" minWidth="0.0" prefWidth="252.0" text="Name" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                     </padding>
+                  </GridPane>
+               </content>
+            </Tab>
+            <Tab text="History">
+              <content>
+                  <GridPane>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <GridPane hgap="15.0" vgap="15.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="65.5999969482422" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="945.9999618530273" minHeight="10.0" prefHeight="932.0000030517579" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <TableView prefHeight="922.0" prefWidth="1890.0" GridPane.rowIndex="1">
+                                <columns>
+                                  <TableColumn prefWidth="178.0" text="Sr no." />
+                                  <TableColumn minWidth="1.0" prefWidth="101.0" text="ARM ID" />
+                                    <TableColumn prefWidth="112.80029296875" text="ARMS Type" />
+                                    <TableColumn prefWidth="218.39990234375" text="ISSUED BY" />
+                                    <TableColumn prefWidth="143.19970703125" text="ISSUED ON" />
+                                </columns>
+                              </TableView>
+                              <JFXButton buttonType="FLAT" text="REFRESH TABLE" />
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+              </content>
+            </Tab>
+            <Tab text="ARMS Information">
+              <content>
+                  <GridPane>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <GridPane alignment="TOP_CENTER" vgap="15.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="406.8000244140625" minHeight="10.0" prefHeight="97.60000762939451" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="945.9999618530273" minHeight="10.0" prefHeight="915.1999923706055" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <TableView prefHeight="922.0" prefWidth="1890.0" GridPane.rowIndex="1">
+                                 <columns>
+                                    <TableColumn prefWidth="75.0" text="S. No." />
+                                    <TableColumn prefWidth="75.0" text="ARM ID" />
+                                    <TableColumn prefWidth="100.80029296875" text="ARMS Type" />
+                                    <TableColumn prefWidth="159.19969177246094" text="ARM REPAIR DATE" />
+                                    <TableColumn prefWidth="75.0" text="ISSUED" />
+                                    <TableColumn prefWidth="163.2001953125" text="OUT OF COMMISSION" />
+                                 </columns>
+                              </TableView>
+                              <JFXButton buttonType="FLAT" text="REFRESH" />
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+      <HBox id="leftSidePaneVbox" alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" spacing="10.0" GridPane.rowIndex="1">
+         <children>
+            <Label fx:id="readerConnectionStatusLabel" text="Status" textFill="WHITE" />
+            <Label fx:id="readerConnectionStatusLabel1" layoutX="20.0" layoutY="34.0" text="Status" textFill="WHITE" />
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
+   </children>
+</GridPane>
